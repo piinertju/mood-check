@@ -1,728 +1,98 @@
-<!DOCTYPE html>
-<html lang="th">
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
 <head>
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>แบบประเมินอารมณ์ประจำวัน</title>
-
-    <style>
-.project-info {
-    width: 100%;
-    margin: 0 auto 24px;
-    padding: 22px;
-
-    background-color: rgba(255, 255, 255, 0.82);
-    border-left: 5px solid #168b73;
-    border-radius: 16px;
-
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
-}
-
-.project-info h2 {
-    margin: 0 0 14px;
-    color: #167d68;
-    font-size: 21px;
-    text-align: left;
-}
-
-.project-info h3 {
-    margin: 20px 0 8px;
-    color: #167d68;
-    font-size: 18px;
-}
-
-.project-info p {
-    margin: 12px 0;
-    color: #455a64;
-    font-size: 15px;
-    line-height: 1.8;
-}
-
-.creator-list {
-    margin: 8px 0 18px;
-    padding-left: 28px;
-    color: #455a64;
-    font-size: 15px;
-    line-height: 1.9;
-}
-
-.thank-you {
-    padding-top: 12px;
-    border-top: 1px solid #d5e5e1;
-}
-
-.contact-info {
-    padding: 14px;
-    background-color: #eef9f6;
-    border-radius: 10px;
-}
-
-.contact-info a {
-    color: #167d68;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.contact-info a:hover {
-    text-decoration: underline;
-}
-
-@media (max-width: 600px) {
-    .project-info {
-        padding: 17px;
-    }
-
-    .project-info h2 {
-        font-size: 19px;
-    }
-
-    .project-info p,
-    .creator-list {
-        font-size: 14px;
-    }
-}
-`
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            padding: 20px;
-            min-height: 100vh;
-
-            background: linear-gradient(
-                135deg,
-                #e8f8f1,
-                #eaf3ff
-            );
-
-            color: #263238;
-
-            font-family:
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                "Noto Sans Thai",
-                Arial,
-                sans-serif;
-
-            line-height: 1.6;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 650px;
-            margin: 0 auto;
-        }
-
-        .logo-container {
-            margin: 5px 0 12px;
-            text-align: center;
-        }
-
-        .logo {
-            width: 110px;
-            height: 110px;
-            object-fit: cover;
-            border-radius: 50%;
-
-            filter: drop-shadow(
-                0 5px 8px rgba(0, 0, 0, 0.15)
-            );
-        }
-
-        h1 {
-            margin: 5px 0 8px;
-            color: #167d68;
-            font-size: 30px;
-            line-height: 1.3;
-            text-align: center;
-        }
-
-        .description {
-            margin: 0 0 28px;
-            color: #607d8b;
-            font-size: 17px;
-            text-align: center;
-        }
-
-        .section {
-            margin-bottom: 22px;
-            padding: 20px;
-
-            background-color: rgba(255, 255, 255, 0.65);
-            border-radius: 18px;
-
-            box-shadow:
-                0 4px 14px rgba(0, 0, 0, 0.06);
-        }
-
-        h2 {
-            margin: 0 0 16px;
-            color: #263238;
-            font-size: 20px;
-            line-height: 1.4;
-        }
-
-        .field-title {
-            display: block;
-            margin: 14px 0 7px;
-            font-weight: bold;
-        }
-
-        select,
-        input[type="text"] {
-            width: 100%;
-            min-height: 48px;
-            padding: 10px 12px;
-
-            background-color: white;
-            color: #263238;
-
-            font-family: inherit;
-            font-size: 16px;
-
-            border: 1px solid #b8cfca;
-            border-radius: 10px;
-            outline: none;
-        }
-
-        select:focus,
-        input[type="text"]:focus {
-            border-color: #168b73;
-            box-shadow:
-                0 0 0 3px rgba(22, 139, 115, 0.14);
-        }
-
-        .choice {
-            display: block;
-            margin-bottom: 10px;
-            padding: 14px 16px;
-
-            background-color: white;
-            border: 2px solid transparent;
-            border-radius: 12px;
-
-            box-shadow:
-                0 3px 10px rgba(0, 0, 0, 0.07);
-
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .choice:hover {
-            border-color: #79cdb9;
-            transform: translateY(-1px);
-        }
-
-        input[type="radio"] {
-            width: 19px;
-            height: 19px;
-            margin-right: 8px;
-
-            accent-color: #168b73;
-            vertical-align: middle;
-        }
-
-        button {
-            display: block;
-            width: 100%;
-            min-height: 54px;
-            margin-top: 10px;
-            padding: 14px 20px;
-
-            background-color: #168b73;
-            color: white;
-
-            font-family: inherit;
-            font-size: 18px;
-            font-weight: bold;
-
-            border: none;
-            border-radius: 14px;
-
-            box-shadow:
-                0 5px 12px rgba(22, 139, 115, 0.25);
-
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        button:hover {
-            background-color: #11705d;
-            transform: translateY(-1px);
-        }
-
-        button:active {
-            transform: scale(0.98);
-        }
-
-        #message {
-            min-height: 28px;
-            margin-top: 14px;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .privacy-note {
-            margin-top: 20px;
-            color: #607d8b;
-            font-size: 13px;
-            text-align: center;
-        }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 14px;
-            }
-
-            h1 {
-                font-size: 25px;
-            }
-
-            h2 {
-                font-size: 18px;
-            }
-
-            .section {
-                padding: 16px;
-            }
-
-            .choice {
-                padding: 13px 14px;
-                font-size: 16px;
-            }
-
-            button {
-                font-size: 17px;
-            }
-
-            .logo {
-                width: 90px;
-                height: 90px;
-            }
-        }
-    </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p2 {margin: 0.0px 0.0px 28.0px 0.0px; text-align: center; font: 17.0px '.ThonburiUI'; color: #4e6a78; -webkit-text-stroke: #4e6a78}
+    p.p4 {margin: 0.0px 0.0px 12.0px 0.0px; font: 15.0px '.ThonburiUI'; color: #364851; -webkit-text-stroke: #364851}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px '.ThonburiUI'; color: #1d262a; -webkit-text-stroke: #1d262a; background-color: #ffffff; background-color: rgba(255, 255, 255, 0.65)}
+    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px 'Helvetica Neue'; color: #1d262a; -webkit-text-stroke: #1d262a; background-color: #ffffff}
+    p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px 'Helvetica Neue'; color: #1d262a; -webkit-text-stroke: #1d262a; min-height: 18.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Thonburi; color: #1d262a; -webkit-text-stroke: #1d262a; background-color: #ffffff}
+    p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Thonburi; color: #000000; color: rgba(0, 0, 0, 0.25); -webkit-text-stroke: rgba(0, 0, 0, 0.25); background-color: #ffffff}
+    p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px '.ThonburiUI'; color: #1d262a; -webkit-text-stroke: #1d262a; background-color: #ffffff}
+    p.p14 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 18.0px '.ThonburiUI'; color: #ffffff; -webkit-text-stroke: #ffffff; background-color: #187a60}
+    p.p15 {margin: 0.0px 0.0px 12.0px 0.0px; text-align: center; font: 12.0px 'Helvetica Neue'; color: #1d262a; -webkit-text-stroke: #1d262a; min-height: 15.0px}
+    p.p16 {margin: 0.0px 0.0px 13.0px 0.0px; text-align: center; font: 13.0px '.ThonburiUI'; color: #4e6a78; -webkit-text-stroke: #4e6a78}
+    li.li6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 15.0px '.ThonburiUI'; color: #364851; -webkit-text-stroke: #364851}
+    span.s1 {font-kerning: none}
+    span.s2 {font-kerning: none; background-color: rgba(255, 255, 255, 0.82)}
+    span.s3 {font: 15.0px 'Helvetica Neue'; font-kerning: none; background-color: rgba(255, 255, 255, 0.82)}
+    span.s4 {font: 15.0px 'Helvetica Neue'; background-color: rgba(255, 255, 255, 0.82); -webkit-text-stroke: 0px #000000}
+    span.s5 {font: 15.0px 'Helvetica Neue'; font-kerning: none}
+    span.s6 {font-kerning: none; background-color: #eaf8f4}
+    span.s7 {font: 15.0px 'Helvetica Neue'; font-kerning: none; background-color: #eaf8f4}
+    span.s8 {font-kerning: none; background-color: rgba(255, 255, 255, 0.65)}
+    span.s9 {font: 16.0px Thonburi; font-kerning: none}
+    span.s10 {font: 16.0px Times; font-kerning: none}
+    span.s11 {font-kerning: none; background-color: #ffffff}
+    span.s12 {font: 16.0px 'Helvetica Neue'; font-kerning: none}
+    span.s13 {font: 16.0px 'Helvetica Neue'; font-kerning: none; color: #1d262a; -webkit-text-stroke: 0px #1d262a}
+    span.s14 {font: 20.0px 'Helvetica Neue'; font-kerning: none; background-color: rgba(255, 255, 255, 0.65)}
+    span.s15 {font: 12.0px 'Helvetica Neue'; font-kerning: none}
+    span.s16 {font: 13.0px 'Helvetica Neue'; font-kerning: none}
+    ol.ol1 {list-style-type: decimal}
+  </style>
 </head>
-
 <body>
-
-    <main class="container">
-
-        <h1>แบบประเมินอารมณ์ประจำวัน</h1>
-
-        <p class="description">
-            กรุณาเลือกคำตอบที่ตรงกับความรู้สึกในวันนี้มากที่สุด
-        </p>
-
-<div class="project-info">
-    <h2>คำชี้แจงแบบสอบถาม</h2>
-
-    <p>
-        แบบสอบถามนี้จัดทำขึ้นสำหรับนักเรียนระดับมัธยมศึกษาตอนปลาย
-        กลุ่มวิชาเอกวิทยาศาสตร์เท่านั้น
-    </p>
-
-    <p>
-        แบบสอบถามนี้มีวัตถุประสงค์เพื่อเก็บรวบรวมข้อมูลเกี่ยวกับ
-        อารมณ์และความพร้อมในการเรียนของนักเรียนในแต่ละวัน
-        เพื่อใช้เป็นข้อมูลประกอบการดูแลและจัดทำรายงานสรุปในภาพรวม
-    </p>
-
-    <p>
-        แบบสอบถามนี้อยู่ภายใต้การดำเนินงานของโครงการ
-        ซึ่งดำเนินการโดยชมรม
-        <strong>SPSM Sustainability Club</strong>
-    </p>
-
-    <h3>คณะผู้จัดทำ</h3>
-
-    <ol class="creator-list">
-        <li>นางสาวกานต์พิชชา พลจรัส</li>
-        <li>นางสาวชุติปภา กิตติรัฐกรณ์</li>
-        <li>นางสาววันทิตา ผดุงศิริกุล</li>
-        <li>นายกวินภพ พูลพุทธพงษ์</li>
-        <li>นายพิชัยวัฒน์ ว่องไว</li>
-    </ol>
-
-    <p>
-        <strong>สถานศึกษา:</strong><br>
-        โรงเรียนสาธิตมหาวิทยาลัยศรีนครินทรวิโรฒ
-        (ฝ่ายมัธยม) ประสานมิตร
-    </p>
-
-    <p>
-        <strong>กลุ่มวิชาเอก:</strong><br>
-        วิชาเอกวิทยาศาสตร์และนวัตกรรมสากล (SG)
-    </p>
-
-    <p class="thank-you">
-        คณะผู้จัดทำขอขอบพระคุณผู้ตอบแบบสอบถามทุกท่าน
-        ที่ให้ความร่วมมือในการตอบแบบสอบถามครั้งนี้
-    </p>
-
-    <p class="contact-info">
-        <strong>หากมีข้อสงสัย สามารถติดต่อได้ที่</strong><br>
-        โทรศัพท์:
-        tel:09227262499</a>
-    </p>
-</div>
-        <section class="section">
-
-            <h2>ข้อมูลทั่วไป</h2>
-
-            <label class="field-title" for="gender">
-                เพศ
-            </label>
-
-            <select id="gender" name="gender">
-                <option value="">กรุณาเลือกเพศ</option>
-                <option value="ชาย">ชาย</option>
-                <option value="หญิง">หญิง</option>
-                <option value="ไม่ประสงค์ระบุ">
-                    ไม่ประสงค์ระบุ
-                </option>
-            </select>
-
-            <label class="field-title" for="grade">
-                ระดับชั้น
-            </label>
-
-            <select id="grade" name="grade">
-                <option value="">กรุณาเลือกระดับชั้น</option>
-                <option value="ม.4">ม.4</option>
-                <option value="ม.5">ม.5</option>
-                <option value="ม.6">ม.6</option>
-            </select>
-
-           <label class="field-title" for="major">
-    วิชาเอก
-</label>
-
-<select id="major" name="major" disabled>
-    <option value="">กรุณาเลือกระดับชั้นก่อน</option>
-</select>
-               
-
-        </section>
-
-        <section class="section">
-
-            <h2>
-                ข้อที่ 1: วันนี้โดยรวมคุณรู้สึกอย่างไร?
-            </h2>
-
-            <label class="choice">
-                <input
-                    type="radio"
-                    name="mood"
-                    value="5"
-                >
-                 มีความสุขมาก
-            </label>
-
-            <label class="choice">
-                <input
-                    type="radio"
-                    name="mood"
-                    value="4"
-                >
-                 รู้สึกดี
-            </label>
-
-            <label class="choice">
-                <input
-                    type="radio"
-                    name="mood"
-                    value="3"
-                >
-                 เฉย ๆ
-            </label>
-
-            <label class="choice">
-                <input
-                    type="radio"
-                    name="mood"
-                    value="2"
-                >
-                 ไม่ค่อยดี
-            </label>
-
-            <label class="choice">
-                <input
-                    type="radio"
-                    name="mood"
-                    value="1"
-                >
-                 ไม่ดีเลย
-            </label>
-
-        </section>
-
-        <section class="section">
-
-            <h2>
-                ข้อที่ 2: วันนี้คุณรู้สึกพร้อมเรียนแค่ไหน?
-            </h2>
-
-            <label class="choice">
-                <input
-                    type="radio"
-                    name="readiness"
-                    value="5"
-                >
-                พร้อมมาก
-            </label>
-
-            <label class="choice">
-                <input
-                    type="radio"
-                    name="readiness"
-                    value="4"
-                >
-                ค่อนข้างพร้อม
-            </label>
-
-            <label class="choice">
-                <input
-                    type="radio"
-                    name="readiness"
-                    value="3"
-                >
-                ปานกลาง
-            </label>
-
-            <label class="choice">
-                <input
-                    type="radio"
-                    name="readiness"
-                    value="2"
-                >
-                ไม่ค่อยพร้อม
-            </label>
-
-            <label class="choice">
-                <input
-                    type="radio"
-                    name="readiness"
-                    value="1"
-                >
-                ไม่พร้อมเลย
-            </label>
-
-        </section>
-
-        <section class="section">
-
-            <h2>
-                ข้อที่ 3: วันนี้คุณอยากให้ครูช่วยเหลือ
-                หรือพูดคุยด้วยไหม?
-            </h2>
-
-            <label class="choice">
-                
-    <input
-        type="radio"
-        name="help"
-        value="ไม่ต้องการ ตอนนี้ฉันโอเค"
-    >
-     ไม่ต้องการ ตอนนี้ฉันโอเค
-</label>
-
-<label class="choice">
-    <input
-        type="radio"
-        name="help"
-        value="อยากพูดคุยกับครู"
-    >
-     อยากพูดคุยกับครู
-</label>
-
-<label class="choice">
-    <input
-        type="radio"
-        name="help"
-        value="อยากให้ครูติดต่อกลับโดยเร็ว"
-    >
-     อยากให้ครูติดต่อกลับโดยเร็ว
-</label>
-
-        </section>
-
-        <button
-            type="button"
-            onclick="sendAssessment()"
-        >
-            ส่งแบบประเมิน
-        </button>
-
-        <p id="message"></p>
-
-        <p class="privacy-note">
-            ข้อมูลนี้ใช้เพื่อการดูแลนักเรียน
-            และควรเข้าถึงได้เฉพาะครูที่เกี่ยวข้อง
-        </p>
-
-    </main>
-
-    <script>
-const majorsByGrade = {
-    "ม.4": [
-        "GH1", "GH2", "GI", "SG",
-        "HT", "HP", "SA", "HS",
-        "HA", "DA", "HD", "CI"
-    ],
-
-    "ม.5": [
-        "GH1", "GH2", "HT", "HC",
-        "SG", "GI", "SA", "HS",
-        "HA", "DA"
-    ],
-
-    "ม.6": [
-        "GH1", "GH2", "SG", "GI",
-        "HS", "HT", "HC", "SA"
-    ]
-};
-
-const gradeSelect = document.getElementById("grade");
-const majorSelect = document.getElementById("major");
-
-gradeSelect.addEventListener("change", function () {
-    const selectedGrade = gradeSelect.value;
-
-    majorSelect.innerHTML = "";
-
-    if (!selectedGrade) {
-        const option = document.createElement("option");
-        option.value = "";
-        option.textContent = "กรุณาเลือกระดับชั้นก่อน";
-
-        majorSelect.appendChild(option);
-        majorSelect.disabled = true;
-        return;
-    }
-
-    const firstOption = document.createElement("option");
-    firstOption.value = "";
-    firstOption.textContent = "กรุณาเลือกวิชาเอก";
-
-    majorSelect.appendChild(firstOption);
-
-    majorsByGrade[selectedGrade].forEach(function (major) {
-        const option = document.createElement("option");
-
-        option.value = major;
-        option.textContent = major;
-
-        majorSelect.appendChild(option);
-    });
-
-    majorSelect.disabled = false;
-});
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw-XxQ1xeRqMPffrbVYXI9OMJAC2u_zg8N_V3TPL40EZ3ga8DziD5p5AYdB7XwBmWvVeg/exec";
-
-    async function sendAssessment() {
-        const gender =
-            document.getElementById("gender").value;
-
-        const grade =
-            document.getElementById("grade").value;
-
-        const major =
-            document
-                .getElementById("major")
-                .value
-                .trim()
-                .toUpperCase();
-
-        const mood =
-            document.querySelector(
-                'input[name="mood"]:checked'
-            );
-
-        const readiness =
-            document.querySelector(
-                'input[name="readiness"]:checked'
-            );
-
-        const help =
-            document.querySelector(
-                'input[name="help"]:checked'
-            );
-
-        const message =
-            document.getElementById("message");
-
-        const button =
-            document.querySelector("button");
-
-        document.getElementById("major").value = major;
-
-        if (
-            !gender ||
-            !grade ||
-            !major ||
-            !mood ||
-            !readiness ||
-            !help
-        ) {
-            message.textContent =
-                "กรุณากรอกข้อมูลและตอบคำถามให้ครบทุกข้อ ⚠️";
-
-            message.style.color = "#d97706";
-            return;
-        }
-
-        const data = {
-            gender: gender,
-            grade: grade,
-            major: major,
-            mood: mood.value,
-            readiness: readiness.value,
-            help: help.value
-        };
-
-        button.disabled = true;
-        button.textContent = "กำลังส่งข้อมูล...";
-
-        message.textContent = "";
-        
-        try {
-            await fetch(WEB_APP_URL, {
-                method: "POST",
-                mode: "no-cors",
-                headers: {
-                    "Content-Type": "text/plain;charset=utf-8"
-                },
-                body: JSON.stringify(data)
-            });
-
-            message.textContent =
-                "ส่งแบบประเมินเรียบร้อยแล้ว ✅";
-
-            message.style.color = "#167d68";
-
-            button.textContent = "ส่งเรียบร้อยแล้ว";
-        } catch (error) {
-            message.textContent =
-                "ส่งข้อมูลไม่สำเร็จ กรุณาลองใหม่อีกครั้ง ⚠️";
-
-            message.style.color = "#d32f2f";
-
-            button.disabled = false;
-            button.textContent = "ส่งแบบประเมิน";
-        }
-    }
-</script>
-
+<h1 style="margin: 0.0px 0.0px 8.0px 0.0px; text-align: center; font: 30.0px '.ThonburiUI'; color: #176c55; -webkit-text-stroke: #176c55"><span class="s1"><b>แบบประเมินอารมณ์ประจำวัน</b><b></b></span></h1>
+<p class="p2"><span class="s1">กรุณาเลือกคำตอบที่ตรงกับความรู้สึกในวันนี้มากที่สุด</span></p>
+<h2 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 21.0px '.ThonburiUI'; color: #176c55; -webkit-text-stroke: #176c55"><span class="s2"><b>คำชี้แจงแบบสอบถาม</b><b></b></span></h2>
+<p class="p4"><span class="s2">แบบสอบถามนี้จัดทำขึ้นสำหรับนักเรียนระดับมัธยมศึกษาตอนปลาย</span><span class="s3"> </span><span class="s2">กลุ่มวิชาเอกวิทยาศาสตร์เท่านั้น</span></p>
+<p class="p4"><span class="s2">แบบสอบถามนี้มีวัตถุประสงค์เพื่อเก็บรวบรวมข้อมูลเกี่ยวกับ</span><span class="s3"> </span><span class="s2">อารมณ์และความพร้อมในการเรียนของนักเรียนในแต่ละวัน</span><span class="s3"> </span><span class="s2">เพื่อใช้เป็นข้อมูลประกอบการดูแลและจัดทำรายงานสรุปในภาพรวม</span></p>
+<p class="p4"><span class="s2">แบบสอบถามนี้อยู่ภายใต้การดำเนินงานของโครงการ</span><span class="s3"> </span><span class="s2">ซึ่งดำเนินการโดยชมรม</span><span class="s3"> <b>SPSM Sustainability Club</b><b></b></span></p>
+<h3 style="margin: 0.0px 0.0px 8.0px 0.0px; font: 18.0px '.ThonburiUI'; color: #176c55; -webkit-text-stroke: #176c55"><span class="s2"><b>คณะผู้จัดทำ</b><b></b></span></h3>
+<ol class="ol1">
+  <li class="li6"><span class="s4"></span><span class="s2">นางสาวกานต์พิชชา</span><span class="s3"> </span><span class="s2">พลจรัส</span></li>
+  <li class="li6"><span class="s4"></span><span class="s2">นางสาวชุติปภา</span><span class="s3"> </span><span class="s2">กิตติรัฐกรณ์</span></li>
+  <li class="li6"><span class="s4"></span><span class="s2">นางสาววันทิตา</span><span class="s3"> </span><span class="s2">ผดุงศิริกุล</span></li>
+  <li class="li6"><span class="s4"></span><span class="s2">นายกวินภพ</span><span class="s3"> </span><span class="s2">พูลพุทธพงษ์</span></li>
+  <li class="li6"><span class="s4"></span><span class="s2">นายพิชัยวัฒน์</span><span class="s3"> </span><span class="s2">ว่องไว</span></li>
+</ol>
+<p class="p4"><span class="s2"><b>สถานศึกษา</b></span><span class="s3"><b>:</b></span><span class="s5"><br>
+</span><span class="s2">โรงเรียนสาธิตมหาวิทยาลัยศรีนครินทรวิโรฒ</span><span class="s3"> (</span><span class="s2">ฝ่ายมัธยม</span><span class="s3">) </span><span class="s2">ประสานมิตร</span></p>
+<p class="p4"><span class="s2"><b>กลุ่มวิชาเอก</b></span><span class="s3"><b>:</b></span><span class="s5"><br>
+</span><span class="s2">วิชาเอกวิทยาศาสตร์และนวัตกรรมสากล</span><span class="s3"> (SG)</span></p>
+<p class="p4"><span class="s2">คณะผู้จัดทำขอขอบพระคุณผู้ตอบแบบสอบถามทุกท่าน</span><span class="s3"> </span><span class="s2">ที่ให้ความร่วมมือในการตอบแบบสอบถามครั้งนี้</span></p>
+<p class="p4"><span class="s6"><b>หากมีข้อสงสัย</b></span><span class="s7"><b> </b></span><span class="s6"><b>สามารถติดต่อได้ที่</b></span><span class="s5"><br>
+</span><span class="s6">โทรศัพท์</span><span class="s7">: 09227262499</span></p>
+<h2 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 20.0px '.ThonburiUI'; color: #1d262a; -webkit-text-stroke: #1d262a"><span class="s8"><b>ข้อมูลทั่วไป</b><b></b></span></h2>
+<p class="p8"><span class="s1"><b>เพศ</b><b></b></span></p>
+<p class="p9"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s9">กรุณาเลือกเพศ</span></p>
+<p class="p9"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s9">ชาย</span></p>
+<p class="p9"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s9">หญิง</span></p>
+<p class="p9"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s10"> </span><span class="s9">ไม่ประสงค์ระบุ</span></p>
+<p class="p10"><span class="s11"><span class="Apple-converted-space">            </span></span></p>
+<p class="p8"><span class="s1"><b>ระดับชั้น</b><b></b></span></p>
+<p class="p11"><span class="s12"><span class="Apple-converted-space">                </span></span><span class="s1">กรุณาเลือกระดับชั้น</span></p>
+<p class="p9"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s9">ม</span><span class="s10">.4</span></p>
+<p class="p9"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s9">ม</span><span class="s10">.5</span></p>
+<p class="p9"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s9">ม</span><span class="s10">.6</span></p>
+<p class="p10"><span class="s11"><span class="Apple-converted-space">            </span></span></p>
+<p class="p8"><span class="s1"><b>วิชาเอก</b><b></b></span></p>
+<p class="p12"><span class="s13"><span class="Apple-converted-space">    </span></span><span class="s1">กรุณาเลือกระดับชั้นก่อน</span></p>
+<h2 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 20.0px '.ThonburiUI'; color: #1d262a; -webkit-text-stroke: #1d262a"><span class="s8"><b>ข้อที่</b></span><span class="s14"><b> 1: </b></span><span class="s8"><b>วันนี้โดยรวมคุณรู้สึกอย่างไร</b></span><span class="s14"><b>?</b><b></b></span></h2>
+<p class="p13"><span class="s1">มีความสุขมาก</span></p>
+<p class="p13"><span class="s1">รู้สึกดี</span></p>
+<p class="p13"><span class="s1">เฉย</span><span class="s15"> </span><span class="s1">ๆ</span></p>
+<p class="p13"><span class="s1">ไม่ค่อยดี</span></p>
+<p class="p13"><span class="s1">ไม่ดีเลย</span></p>
+<h2 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 20.0px '.ThonburiUI'; color: #1d262a; -webkit-text-stroke: #1d262a"><span class="s8"><b>ข้อที่</b></span><span class="s14"><b> 2: </b></span><span class="s8"><b>วันนี้คุณรู้สึกพร้อมเรียนแค่ไหน</b></span><span class="s14"><b>?</b><b></b></span></h2>
+<p class="p13"><span class="s1">พร้อมมาก</span></p>
+<p class="p13"><span class="s1">ค่อนข้างพร้อม</span></p>
+<p class="p13"><span class="s1">ปานกลาง</span></p>
+<p class="p13"><span class="s1">ไม่ค่อยพร้อม</span></p>
+<p class="p13"><span class="s1">ไม่พร้อมเลย</span></p>
+<h2 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 20.0px '.ThonburiUI'; color: #1d262a; -webkit-text-stroke: #1d262a"><span class="s8"><b>ข้อที่</b></span><span class="s14"><b> 3: </b></span><span class="s8"><b>วันนี้คุณอยากให้ครูช่วยเหลือ</b></span><span class="s14"><b> </b></span><span class="s8"><b>หรือพูดคุยด้วยไหม</b></span><span class="s14"><b>?</b><b></b></span></h2>
+<p class="p13"><span class="s1">ไม่ต้องการ</span><span class="s15"> </span><span class="s1">ตอนนี้ฉันโอเค</span></p>
+<p class="p13"><span class="s1">อยากพูดคุยกับครู</span></p>
+<p class="p13"><span class="s1">อยากให้ครูติดต่อกลับโดยเร็ว</span></p>
+<p class="p14"><span class="s1"><b>ส่งแบบประเมิน</b><b></b></span></p>
+<p class="p15"><span class="s1"><b></b></span><br></p>
+<p class="p16"><span class="s1">ข้อมูลนี้ใช้เพื่อการดูแลนักเรียน</span><span class="s16"> </span><span class="s1">และควรเข้าถึงได้เฉพาะครูที่เกี่ยวข้อง</span></p>
 </body>
-
 </html>
